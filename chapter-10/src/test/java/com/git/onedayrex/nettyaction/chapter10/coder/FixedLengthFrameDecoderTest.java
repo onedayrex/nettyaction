@@ -42,4 +42,22 @@ public class FixedLengthFrameDecoderTest {
         Assert.assertEquals(buffer.readBytes(4), embeddedChannel.readInbound());
         Assert.assertEquals(null, embeddedChannel.readInbound());
     }
+
+    @Test
+    public void decode2() {
+        ByteBuf buffer = Unpooled.buffer();
+        for (int i = 0; i < 9; i++) {
+            buffer.writeByte(i);
+        }
+        ByteBuf copy = buffer.copy();
+        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new FixedLengthFrameDecoder(4));
+        //写稿数据入站
+        Assert.assertFalse(embeddedChannel.writeInbound(copy.readBytes(2)));
+        Assert.assertTrue(embeddedChannel.writeInbound(copy.readBytes(7)));
+        Assert.assertTrue(embeddedChannel.finish());
+        //读取数据
+        Assert.assertEquals(buffer.readBytes(4), embeddedChannel.readInbound());
+        Assert.assertEquals(buffer.readBytes(4), embeddedChannel.readInbound());
+        Assert.assertEquals(null, embeddedChannel.readInbound());
+    }
 }
