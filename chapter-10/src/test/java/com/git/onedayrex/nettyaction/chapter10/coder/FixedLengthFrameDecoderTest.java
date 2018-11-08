@@ -20,6 +20,14 @@ public class FixedLengthFrameDecoderTest {
         //只复制出有数据的字节buf，当前是9位
         /**
          * 坑，原书使用 buffer.duplicate() 复制buffer，
+         *  if (buffer instanceof DuplicatedByteBuf) {
+         *      this.buffer = ((DuplicatedByteBuf)buffer).buffer;
+         *  } else if (buffer instanceof AbstractPooledDerivedByteBuf) {
+         *      this.buffer = buffer.unwrap();
+         *  } else {
+         *      this.buffer = buffer;
+         *  }
+         * 此处如果不是duplicatedByteBug与pooledDeriedByteBuf 直接会得到对象引用
          * 这样相当于对象的引用，当把 duplicate写入站后，refcnt从1变成0
          * 则表示使用过，netty看成是资源已经释放，在读取数据作对比时则无法
          * 使用readBytes，这里使用copy代替，直接拷贝出对象来
