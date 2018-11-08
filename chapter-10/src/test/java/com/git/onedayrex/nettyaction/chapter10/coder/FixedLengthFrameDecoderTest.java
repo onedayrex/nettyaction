@@ -51,7 +51,7 @@ public class FixedLengthFrameDecoderTest {
         }
         ByteBuf copy = buffer.copy();
         EmbeddedChannel embeddedChannel = new EmbeddedChannel(new FixedLengthFrameDecoder(4));
-        //写稿数据入站
+        //写入数据入站
         Assert.assertFalse(embeddedChannel.writeInbound(copy.readBytes(2)));
         Assert.assertTrue(embeddedChannel.writeInbound(copy.readBytes(7)));
         Assert.assertTrue(embeddedChannel.finish());
