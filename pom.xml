@@ -13,6 +13,7 @@
         <module>chapter-10</module>
         <module>chapter-12</module>
         <module>nettyguide4-3</module>
+        <module>nettyguide5-1</module>
     </modules>
 
     <dependencies>
