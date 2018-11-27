@@ -1,4 +1,4 @@
-package com.git.onedayrex.nettyaction.nettyguide71.dto;
+package com.git.onedayrex.nettyaction.nettyguide81.dto;
 
 import java.io.Serializable;
 import java.util.Date;

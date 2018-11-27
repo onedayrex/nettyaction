@@ -1,0 +1,6 @@
+syntax = 'proto3';
+message OrderInfoResp{
+    int32 reqId = 1;
+    string orderNo = 2;
+    string goodName = 3;
+}

@@ -1,6 +1,6 @@
-package com.git.onedayrex.nettyaction.nettyguide71.server;
+package com.git.onedayrex.nettyaction.nettyguide81.server;
 
-import com.git.onedayrex.nettyaction.nettyguide71.handler.OrderServerHandler;
+import com.git.onedayrex.nettyaction.nettyguide81.handler.OrderServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
