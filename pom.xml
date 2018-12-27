@@ -17,6 +17,7 @@
         <module>nettyguide7-1</module>
         <module>nettyguide8-1</module>
         <module>nettyguide9-1</module>
+        <module>nettyguide10-1</module>
     </modules>
 
     <dependencies>
